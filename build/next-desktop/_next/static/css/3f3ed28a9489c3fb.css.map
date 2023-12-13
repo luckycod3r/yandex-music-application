@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://_N_E/src/domain/features/navigation/ui/NavigationControls.module.scss"],"names":[],"mappings":"AAAA,gCACI,mBAAA,CAAA,mBAAA,CAAA,YAAA,CACA,4BAAA","file":"static/css/3f3ed28a9489c3fb.css","sourcesContent":[".root {\n    display: flex;\n    gap: var(--ym-spacer-size-xs);\n}\n"],"sourceRoot":""}
