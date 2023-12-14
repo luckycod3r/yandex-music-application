@@ -6,16 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createWindow = void 0;
 const node_path_1 = __importDefault(require("node:path"));
 const electron_1 = require("electron");
-const loader_js_1 = require("./loader.js");
-const safeRedirects_js_1 = require("./safeRedirects.js");
 const config_js_1 = require("../config.js");
-const loadURL = (0, loader_js_1.loader)({
-    protocol: config_js_1.config.appProtocol,
-    hostname: config_js_1.config.appHostname,
-    buildPath: config_js_1.config.buildPath,
-    bypassCSP: config_js_1.config.bypassCSP,
-    isCorsEnabled: config_js_1.config.enableWebSecurity
-});
 const createWindow = async () => {
     const window = new electron_1.BrowserWindow({
         show: false,
@@ -39,11 +30,9 @@ const createWindow = async () => {
             preload: node_path_1.default.join(__dirname, 'preload.js')
         }
     });
-    (0, safeRedirects_js_1.safeRedirects)(window);
     window.once('ready-to-show', () => {
         window.show();
     });
-    await loadURL(window);
     return window;
 };
 exports.createWindow = createWindow;

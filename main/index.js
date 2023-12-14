@@ -20,6 +20,8 @@ const handleError_js_1 = require("./lib/handlers/handleError.js");
 const customTitleBar_js_1 = require("./lib/customTitleBar.js");
 const platform_js_1 = require("./constants/platform.js");
 const handleMetrikaRequests_js_1 = require("./lib/handlers/handleMetrikaRequests.js");
+const loadURL_js_1 = require("./lib/loadURL.js");
+const safeRedirects_js_1 = require("./lib/safeRedirects.js");
 (0, handleError_js_1.handleUncaughtException)();
 (0, singleInstance_js_1.checkForSingleInstance)();
 (0, handleDeeplink_js_1.handleDeeplinkOnApplicationStartup)();
@@ -27,6 +29,7 @@ const handleMetrikaRequests_js_1 = require("./lib/handlers/handleMetrikaRequests
     await electron_1.app.whenReady();
     (0, menu_js_1.setupMenu)();
     const window = await (0, createWindow_js_1.createWindow)();
+    (0, safeRedirects_js_1.safeRedirects)(window);
     (0, events_js_1.handleApplicationEvents)(window);
     (0, handleExternalLink_js_1.handleExternalLink)(window);
     (0, logger_js_1.logWindowLifecycle)(window);
@@ -34,6 +37,7 @@ const handleMetrikaRequests_js_1 = require("./lib/handlers/handleMetrikaRequests
     (0, handleMetrikaRequests_js_1.handleMetrikaRequests)(window);
     (0, handleCrash_js_1.handleCrash)();
     (0, handleFocus_js_1.handleFocus)();
+    await (0, loadURL_js_1.loadURL)(window);
     if (node_os_1.default.platform() === platform_js_1.Platform.WINDOWS) {
         (0, customTitleBar_js_1.createCustomTitleBar)(window);
     }
