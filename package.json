@@ -1,7 +1,7 @@
 {
     "private": true,
     "name": "YandexMusic",
-    "version": "5.0.1",
+    "version": "5.0.3",
     "description": "Персональные рекомендации, подборки на любой случай и музыкальные новинки",
     "author": "Яндекс Музыка",
     "main": "main/index.js",
@@ -18,8 +18,8 @@
         "js-yaml": "~4.1.0"
     },
     "buildInfo": {
-        "VERSION": "5.0.1",
-        "BRANCH": "release-beta-1/b8e47fa9"
+        "VERSION": "5.0.3",
+        "BRANCH": "release-beta-2/eff5ec00"
     },
     "common": {
         "UPDATE_POLL_INTERVAL": 1800000,
